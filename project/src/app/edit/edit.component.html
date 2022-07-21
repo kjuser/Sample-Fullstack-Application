@@ -1,0 +1,30 @@
+
+
+<div class="form-container form" id="form">
+    
+    <form  #editForm = "ngForm" (ngSubmit)="editSubmit(editForm)" >
+<div class="form-group">
+        <label>UserName :</label>
+        <input type="email" [formControl]='userName' class="form-control" id="username" name="userName"   >
+        <br>
+    </div>
+        <label> Old Password : </label><br>
+        <input type="password" [formControl]='oldPassword' class="password" minlength="5"><br>
+        <div *ngIf="oldPassword.invalid && (oldPassword.dirty || oldPassword.touched)" class="alert alert-danger">
+            
+            Enter old password
+        </div>
+        <br>
+   
+    <label> New Password : </label><br>
+    <input type="password" [formControl]='newPassword' class="password" minlength="5"><br>
+    <div *ngIf="newPassword.invalid && (newPassword.dirty || newPassword.touched)" class="alert alert-danger">
+        <!-- <div *ngIf="newPassword.errors.required">New Password is required. </div> -->
+       
+        New Password required
+    </div>
+    <br>
+
+        <button class="buttonalign2" type="submit"   >Edit</button>
+    </form>
+</div>
